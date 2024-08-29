@@ -180,7 +180,7 @@ const refreshAccessToken=asyncHandler(async(req,res)=>{
     throw new ApiError(501,error?.message || "Invalid refresh token")
   }
 })
-
+//change password
 const changeCurrentPassword = asyncHandler(async(req,res)=>{
   const {oldPassword,newPassword}=req.body
   const user = await User.findById(req.user?._id);
@@ -202,9 +202,9 @@ const changeCurrentPassword = asyncHandler(async(req,res)=>{
 const getCurrentUser = asyncHandler(async(req,res)=>{
   return res
   .status(200)
-  .json(200,req.user,"Current used fetched succesfully")
+  .json(200,req.user,"Current user fetched succesfully")
 })
-
+// update details
 const updateAccoutDetails=asyncHandler(async(req,res)=>{
   const {fullName,email} = req.body
   if(!fullName || !email){
